@@ -1111,7 +1111,7 @@ local function run(msg, matches)
 	local print_name = user_print_name(msg.from):gsub("‮", "")
 	local name_log = print_name:gsub("_", " ")
 	local data = load_data(_config.moderation.data)
-		if matches[1] == 'add' and not matches[2] then
+		if matches[1] == 'افزودن گروه' and not matches[2] then
 			if not is_admin1(msg) and not is_support(support_id) then
 				return
 			end
@@ -1125,7 +1125,7 @@ local function run(msg, matches)
 			channel_set_admin(receiver, 'user#id'..msg.from.id, ok_cb, false)
 		end
 
-		if matches[1] == 'rem' and is_admin1(msg) and not matches[2] then
+		if matches[1] == 'حذف گروه' and is_admin1(msg) and not matches[2] then
 			if not is_super_group(msg) then
 				return reply_msg(msg.id, 'سوپرگروه اضافه نشده است', ok_cb, false)
 			end
@@ -2017,8 +2017,8 @@ end
 
 return {
   patterns = {
-        "^[#!/]([Aa]dd)$",
-	"^[#!/]([Rr]em)$",
+        "^[#!/](افزودن گروه)$",
+	"^[#!/](حذف گروه)$",
 	"^[#!/]([Mm]ove) (.*)$",
 	"^[#!/]([Oo]wner)$",
 	"^[#!/]([Mm]odlist)$",
